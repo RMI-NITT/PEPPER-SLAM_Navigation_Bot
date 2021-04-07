@@ -1,0 +1,30 @@
+<launch>
+
+  <arg name="model" default= "$(find pepper)/urdf/pepper.urdf"/>
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find pepper)/rviz/initial_config.rviz" />
+  <arg name="port" default="/dev/ttyACM0" />
+  <arg name="camera" default="camera"/>
+ 
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <include file = "$(find openni_launch)/launch/openni.launch">
+	<arg name="depth_registration" value="true"/>
+	<arg name="camera" value="$(arg camera)"/>
+  </include>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+ 
+  <node name="laser_emulator" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
+	<param name="scan_height" value="1.0" />
+  	<param name="scan_time" value="0.033" />
+  	<param name="range_min" value="0.45" />
+  	<param name="range_max" value="10.0" />
+  	<param name="output_frame_id " value="camera_depth_frame" />
+  	<remap from="camera_info" to="/camera/depth_registered/camera_info"/>
+  	<remap from="/image" to="/camera/depth_registered/image_raw"/>
+  </node>
+
+</launch>

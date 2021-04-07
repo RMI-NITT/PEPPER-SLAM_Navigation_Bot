@@ -1,0 +1,50 @@
+<launch>
+
+  <arg name="model" default= "$(find pepper)/urdf/pepper_nav.urdf"/>
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find pepper)/rviz/initial_config.rviz" />
+  <arg name="port" default="/dev/ttyACM0" />
+  <arg name="camera" default="camera"/>
+  <arg name="map_file" default="$(find pepper)/maps/map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+ 
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <include file = "$(find openni_launch)/launch/openni.launch">
+	<arg name="depth_registration" value="true"/>
+	<arg name="camera" value="$(arg camera)"/>
+  </include>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <node name="laser_emulator" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
+	<param name="scan_height" value="1" />
+  	<param name="scan_time" value="0.033" />
+  	<param name="range_min" value="0.45" />
+  	<param name="range_max" value="10.0" />
+  	<param name="output_frame_id " value="camera_depth_frame" />
+  	<remap from="camera_info" to="/camera/depth_registered/camera_info"/>
+  	<remap from="/image" to="/camera/depth_registered/image_raw"/>
+  </node>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+  
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+  </group>
+
+  <!-- AMCL -->
+  <include file="$(find turtlebot3_navigation)/launch/amcl.launch"/>
+
+  <!-- move_base -->
+  <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+    <arg name="model" value="waffle_pi" />
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+</launch>
+

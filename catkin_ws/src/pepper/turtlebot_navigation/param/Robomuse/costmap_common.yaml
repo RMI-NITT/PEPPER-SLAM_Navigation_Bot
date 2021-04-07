@@ -1,0 +1,19 @@
+transform_tolerance: 0.1 #0.3
+obstacle_range: 10.0 #4.0
+raytrace_range: 10.0 #4.5
+#footprint: [[0.100,0.190],[0.100,-0.190],[-0.290,-0.190],[-0.290,0.190]]
+robot_radius: 0.5 #0.8
+inflation_layer:
+   enabled: true
+   inflation_radius: 0.6
+   cost_scaling_factor: 100
+footprint_clearing_enabled: true
+static_map_layer:
+   lethal_cost_threshold: 100
+# observation_sources: kinect_point_cloud
+
+#kinect_laser: {sensor_frame: base_laser_link,data_type: LaserScan,topic: /scan,expected_update_rate: 0.4,observation_persistence: 0.0,marking: true,  clearing: true, max_obstacle_height: 0.4,  min_obstacle_height: 0.08}
+
+
+
+# kinect_point_cloud: {sensor_frame: camera_depth_frame, data_type: PointCloud2, topic: /camera/depth_registered/points, expected_update_rate: 0.4, marking: true, clearing: true}
