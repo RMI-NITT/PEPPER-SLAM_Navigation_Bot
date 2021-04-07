@@ -20,5 +20,15 @@ For running the simulations follow the instructions provided in the official Tur
 - Make sure to check the "Melodic" tab on top of each page to run the compatible ROS commands.
 
 ## Part-2: Running SLAM on Robot ##
-1) Connect the Arduino Mega in the Robot to the Laptop via USB Cable and run the `chmod 777 (port name)` 
-1) Upload the following Arduino Sketch into the 
+1) Connect the Arduino Mega in the Robot to the Laptop via USB Cable and run the `chmod 777 (port name)` to grant data transfer permissions.
+2) Upload the following Arduino Sketch into the Ardino Mega of the Robot: `/catkin_ws/src/ros_arduino/ros_arduino_base/firmware/two_wheel_base/two_wheel_base.ino`
+3) Plug in the USB port of the on-board Microsoft Kinect on the Robot into the laptop and run the `chmod 777 (port name)` again on the port of the Kinect.
+4) Run the following commands each in individual terminal tabs/windows, to start the SLAM process:
+   ```
+   roslaunch ros_arduino_base base_bringup.launch
+   roslaunch pepper urdf.launch
+   roslaunch pepper pepper_rtab.launch
+   roslaunch teleop_twist_joy teleop.launch
+   ```
+ 5) Run `rviz` command, and select the rostopics you would like to visualize during SLAM.
+ 6) 
