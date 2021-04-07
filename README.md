@@ -32,5 +32,5 @@ For running the simulations follow the instructions provided in the official Tur
    ```
  5) Run `rviz` command, and select the rostopics you would like to visualize during SLAM.
  6) Now drive the Bot around using the joystick and map the entire room. The mapped areas can be visualized by adding the `/map` topic in the rviz window.
- 7) Finally after mapping, run the following command to save the map offline, for future use such as navigation:<br/>  
+ 7) Finally after mapping, run the following command to save the map offline, for future use such as navigation:  
     `rosrun map_server map_saver -f $(find pepper)/maps/map`
