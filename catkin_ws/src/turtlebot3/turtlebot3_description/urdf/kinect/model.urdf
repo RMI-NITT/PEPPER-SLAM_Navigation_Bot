@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="kinect">
+  <link name="kinect__link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="kinect__collision">
+      <origin rpy="0  0  0" xyz="0       0       0.03599"/>
+      <geometry>
+        <box size="0.073000 0.276000 0.072000"/>
+      </geometry>
+    </collision>
+    <visual name="kinect__visual">
+      <origin rpy="0  0  0" xyz="0       0       0.03599"/>
+      <geometry>
+        <mesh filename="package://turtlebot3_description/urdf/kinect/meshes/kinect.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,12 @@
+wheel_radius: 0.05 # m
+base_width: 0.2937852 # m
+counts_per_rev: 29520.0
+gear_ratio: 1.0
+encoder_on_motor_shaft: 0 # 0 is false and 1 is true
+
+pid_gains: [100,60,20]
+control_rate: [50]
+encoder_rate: [50]
+pwm_range: [255]
+no_cmd_timeout: [1]
+publish_tf: true
