@@ -34,3 +34,16 @@ For running the simulations follow the instructions provided in the official Tur
  6) Now drive the Bot around using the joystick and map the entire room. The mapped areas can be visualized by adding the `/map` topic in the rviz window.
  7) Finally after mapping, run the following command to save the map offline, for future use such as navigation:  
     `rosrun map_server map_saver -f $(find pepper)/maps/map`
+
+## Part-3: Implementing Autonomous Navigation ##
+1) Close all the running ros nodes and run the following launch files, to enable point to point navigation:
+    ```
+    roslaunch ros_arduino_base base_bringup.launch
+    roslaunch pepper pepper_loc_rtab.launch
+    roslaunch pepper pepper_navigation.launch
+    roslaunch teleop_twist_joy teleop.launch
+    ```
+2) Using the joystick, drive the Bot shortly facing a wall/obstacle/corner until the rtab-map package auto-localizes the bot's location on the map, using the scan data obtained from the Kinect.
+3) Now select the "Set Goal" option on the toolbar at the top of the rviz window, and click a point on the map where you want the Bot to autonomously navigate to.
+4) If you have followed the instructions correctly, you can now observe the Bot autonomously doing the path planning and navigating to the Goal point that you chose.
+5) After the bot reaches the destination point, you can select your next desired goal and repeat the Steps 3, 4 & 5 as many times as you want.
