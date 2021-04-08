@@ -1,6 +1,8 @@
 # PEPPER-SLAM_Navigation_Bot
 A Differential Drive Mobile Robot that can perform SLAM (Simultaneous Localization and Mapping) and Autonomous Navigation using navigation stack and avoid obstacles in a room.
 
+**NOTE: Scroll Down to view the Photo Gallery of the Robot and its functionalities.**
+
 ## Demonstration Videos (YouTube):
 1) Navigation Simulation on Gazebo: https://youtu.be/JQFO9v_3PpE
 2) Performing SLAM with PEPPER: https://youtu.be/AsfRXxU7h94
@@ -54,3 +56,27 @@ For running the simulations follow the instructions provided in the official Tur
 3) Now select the "Set Goal" option on the toolbar at the top of the rviz window, and click a point on the map where you want the Bot to autonomously navigate to.
 4) If you have followed the instructions correctly, you can now observe the Bot autonomously doing the path planning and navigating to the Goal point that you chose.
 5) After the Bot reaches the destination point, you can select your next desired goal and repeat Steps 3, 4 & 5 as many times as you want.
+
+# Photo Gallery
+
+## The Robot: ##
+![PEPPER-Front](/pictures/PEPPER-Front.jpg?raw=true "PEPPER Front")
+![PEPPER-Back](/pictures/PEPPER-Back.jpg?raw=true "PEPPER Back")
+![PEPPER-Circuit](/pictures/PEPPER-Circuit.jpg?raw=true "PEPPER Circuit")
+![PEPPER-Bottom](/pictures/PEPPER-Bottom.jpg?raw=true "PEPPER Bottom")
+
+## 1) Simulation on Gazebo: ##
+![Simulation-1](/pictures/Simulation-1.jpg?raw=true "View from North Room")
+![Simulation-2](/pictures/Simulation-2.jpg?raw=true "View from North Hall")
+![Simulation-3](/pictures/Simulation-3.jpg?raw=true "View from South Hall")
+
+## 2) Performing SLAM with PEPPER: ##
+![SLAM-1](/pictures/SLAM-1.jpg?raw=true "SLAM 1")
+![SLAM-2](/pictures/SLAM-2.jpg?raw=true "SLAM 2")
+![SLAM-3](/pictures/SLAM-3.jpg?raw=true "SLAM 3")
+
+## 3) Autonomous Navigation: ##
+![Navigation-1](/pictures/Navigation-1.jpg?raw=true "Area to Navigate")
+![Navigation-2](/pictures/Navigation-2.jpg?raw=true "Assigning Goal in RViz")
+![Navigation-3](/pictures/Navigation-3.jpg?raw=true "Path Planned to Goal")
+![Navigation-4](/pictures/Navigation-4.jpg?raw=true "Robot reached the Goal")
