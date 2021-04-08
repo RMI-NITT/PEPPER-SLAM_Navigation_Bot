@@ -1,6 +1,13 @@
 # PEPPER-SLAM_Navigation_Bot
 A Differential Drive Mobile Robot that can perform SLAM (Simultaneous Localization and Mapping) and Autonomous Navigation using navigation stack and avoid obstacles in a room.
 
+## Demonstration Videos (YouTube):
+1) Navigation Simulation on Gazebo: https://youtu.be/JQFO9v_3PpE
+2) Performing SLAM with PEPPER: https://youtu.be/AsfRXxU7h94
+3) Autonomous Navigation Demonstration: https://youtu.be/RHS6B5DbNY4
+
+Full Playlist (including old videos): https://youtube.com/playlist?list=PL44ElmNkyTvBqNAVxaPmKnhxJGcgDSsyj
+
 ## System Requirements: ##
 1) Ubuntu 18.04 (Bionic Beaver) OS
 2) ROS Melodic Morenia Framework
