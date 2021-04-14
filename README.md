@@ -1,7 +1,7 @@
 # PEPPER-SLAM_Navigation_Bot
 A Differential Drive Mobile Robot that can perform SLAM (Simultaneous Localization and Mapping) and Autonomous Navigation using navigation stack and avoid obstacles in a room.
 
-**NOTE: Scroll Down to view the Photo Gallery of the Robot and its functionalities.**
+**NOTE: SCROLL DOWN to view the Photo Gallery of the Robot and its functionalities.**
 
 ## Demonstration Videos (YouTube):
 1) Navigation Simulation on Gazebo: https://youtu.be/JQFO9v_3PpE
